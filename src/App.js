@@ -1,9 +1,11 @@
 import logo from "./logo.svg";
 import "./App.css";
-import Calendar from "./components/Calendar/Calendar";
+import moment from "moment";
 
 function App() {
-  return <Calendar />;
+  console.log("moment:", moment());
+
+  return <div>Calendar</div>;
 }
 
 export default App;
