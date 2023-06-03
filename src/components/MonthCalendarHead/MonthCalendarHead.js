@@ -1,15 +1,14 @@
 import React from "react";
-import { DaysWrapper, СellOfDay } from "./DaysGrid.styled";
+import { DaysWrapper, СellOfDay } from "./MonthCalendarHead.styled";
 import moment from "moment";
 
-export const DaysGrid = () => {
+export const MonthCalendarHead = () => {
   const daysArray = [...Array(7)].map((_, i) =>
     moment()
       .day(i + 1)
       .format("ddd")
       .toUpperCase()
   );
-  console.log("daysArray:", daysArray);
 
   return (
     <DaysWrapper>

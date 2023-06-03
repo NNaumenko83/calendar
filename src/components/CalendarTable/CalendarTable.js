@@ -8,9 +8,10 @@ import {
   ShowDayWrapper,
   TaskList,
   TaskItem,
-} from "./CalendarGrid.styled";
+} from "./CalendarTable.styled";
+import moment from "moment";
 
-export const CalendarGrid = ({ startDay, currentDay }) => {
+export const CalendarTable = ({ startDay, today }) => {
   const [tasks, setTasks] = useState([]);
 
   const totalDays = 42;
@@ -26,8 +27,8 @@ export const CalendarGrid = ({ startDay, currentDay }) => {
   const day = startDay.clone().subtract(1, "day");
   const daysArray = [...Array(totalDays)].map(() => day.add(1, "day").clone());
 
-  const isCurrentDay = (day) => currentDay.isSame(day, "day");
-  const isSelectedMonth = (day) => currentDay.isSame(day, "month");
+  const isCurrentDay = (day) => moment().isSame(day, "day");
+  const isSelectedMonth = (day) => today.isSame(day, "month");
 
   useEffect(() => {
     fetch("https://githack-goosetrack.onrender.com/api/tasks")
