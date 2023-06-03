@@ -1,8 +1,15 @@
 import React from "react";
 import { DaysWrapper, СellOfDay } from "./DaysGrid.styled";
+import moment from "moment";
 
 export const DaysGrid = () => {
-  const daysArray = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
+  const daysArray = [...Array(7)].map((_, i) =>
+    moment()
+      .day(i + 1)
+      .format("ddd")
+      .toUpperCase()
+  );
+  console.log("daysArray:", daysArray);
 
   return (
     <DaysWrapper>

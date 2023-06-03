@@ -14,11 +14,15 @@ export const CalendarGrid = ({ startDay, currentDay }) => {
 
   // Перевіряємо чи поточний день
   const isCurrentDay = (day) => currentDay.isSame(day, "day");
+  const isSelectedMonth = (day) => currentDay.isSame(day, "month");
 
   return (
     <CalendarGridWrapper>
       {daysArray.map((dayItem) => (
-        <CellWrapper key={dayItem.format("DDMMYYYY")}>
+        <CellWrapper
+          key={dayItem.format("DDMMYYYY")}
+          isSelectedMonth={isSelectedMonth(dayItem)}
+        >
           <RowInCeil justifyContent={"flex-end"}>
             <DayWrapper>
               {!isCurrentDay(dayItem) ? (

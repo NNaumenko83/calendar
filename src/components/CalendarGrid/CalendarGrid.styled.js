@@ -18,6 +18,9 @@ export const CellWrapper = styled.div`
   padding: 14px 8px;
 
   background-color: #ffff;
+
+  color: ${(props) =>
+    props.isSelectedMonth ? "#343434" : "rgba(52, 52, 52, 0.2)"};
 `;
 
 export const RowInCeil = styled.div`
