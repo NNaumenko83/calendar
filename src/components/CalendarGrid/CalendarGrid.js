@@ -4,20 +4,29 @@ import {
   CellWrapper,
   RowInCeil,
   DayWrapper,
+  CurrentDay,
 } from "./CalendarGrid.styled";
 
-export const CalendarGrid = ({ startDay }) => {
+export const CalendarGrid = ({ startDay, currentDay }) => {
   const totalDays = 42;
   const day = startDay.clone().subtract(1, "day");
   const daysArray = [...Array(totalDays)].map(() => day.add(1, "day").clone());
-  console.log("daysArray:", daysArray);
+
+  // Перевіряємо чи поточний день
+  const isCurrentDay = (day) => currentDay.isSame(day, "day");
 
   return (
     <CalendarGridWrapper>
       {daysArray.map((dayItem) => (
         <CellWrapper key={dayItem.format("DDMMYYYY")}>
           <RowInCeil justifyContent={"flex-end"}>
-            <DayWrapper>{dayItem.format("D")}</DayWrapper>
+            <DayWrapper>
+              {!isCurrentDay(dayItem) ? (
+                <div>{dayItem.format("D")}</div>
+              ) : (
+                <CurrentDay>{dayItem.format("D")}</CurrentDay>
+              )}
+            </DayWrapper>
           </RowInCeil>
         </CellWrapper>
       ))}
