@@ -35,6 +35,7 @@ export const DayWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 `;
 
 export const CurrentDay = styled.div`
@@ -60,4 +61,46 @@ export const CurrentDay = styled.div`
 
   background: #3e85f3;
   border-radius: 8px;
+`;
+
+export const ShowDayWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
+export const TaskList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+
+  /* font-family: "Inter"; */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+
+  list-style: none;
+`;
+
+export const TaskItem = styled.li`
+  padding: 4px 12px;
+
+  border-radius: 8px;
+
+  background-color: ${(props) => {
+    switch (props.priority) {
+      case "low":
+        return "#72C2F8";
+      case "medium":
+        return "#F3B249";
+      case "high":
+        return "#EA3D65";
+
+      default:
+        return "#72C2F8";
+    }
+  }};
 `;
