@@ -35,6 +35,15 @@ export const CalendarGrid = ({ startDay, currentDay }) => {
       .then((res) => setTasks(res.data));
   }, []);
 
+  let dayTasksFiltered = [];
+
+  const filterTask = (calendarDay) => {
+    dayTasksFiltered = [
+      ...tasks.filter((task) => task.date === calendarDay.format("YYYY-MM-DD")),
+    ];
+    return dayTasksFiltered;
+  };
+
   //   {
   // "_id": "647a36e401a3371dd3c043d8",
   // "title": "My task  medium done 09:39-10:01",
@@ -65,15 +74,15 @@ export const CalendarGrid = ({ startDay, currentDay }) => {
               </DayWrapper>
             </ShowDayWrapper>
           </RowInCeil>
-          <TaskList>
-            {tasks
-              .filter((task) => task.date === dayItem.format("YYYY-MM-DD"))
-              .map((task) => (
+          {filterTask(dayItem).length > 0 && (
+            <TaskList>
+              {dayTasksFiltered.map((task) => (
                 <TaskItem key={task._id} priority={task.priority}>
                   {cutString(task.title)}
                 </TaskItem>
               ))}
-          </TaskList>
+            </TaskList>
+          )}
         </CellWrapper>
       ))}
     </CalendarGridWrapper>

@@ -15,7 +15,8 @@ export const CalendarGridWrapper = styled.div`
 export const CellWrapper = styled.div`
   width: 140px;
   height: 80px;
-  padding: 14px 8px;
+  padding: 5px 8px;
+  overflow: hidden;
 
   background-color: #ffff;
 
@@ -71,7 +72,7 @@ export const ShowDayWrapper = styled.div`
 export const TaskList = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
   width: 100%;
   padding: 0;
   margin: 0;
@@ -86,7 +87,7 @@ export const TaskList = styled.ul`
 `;
 
 export const TaskItem = styled.li`
-  padding: 4px 12px;
+  padding: 2px 12px;
 
   border-radius: 8px;
 
