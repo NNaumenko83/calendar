@@ -134,6 +134,19 @@ export const TaskItem = styled.li`
       case "low":
         return "#72C2F8";
       case "medium":
+        return "#FCF0D4";
+      case "high":
+        return "#FFD2DD";
+      default:
+        return "#FFD2DD";
+    }
+  }};
+
+  color: ${(props) => {
+    switch (props.priority) {
+      case "low":
+        return "#3E85F3";
+      case "medium":
         return "#F3B249";
       case "high":
         return "#EA3D65";
