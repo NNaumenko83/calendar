@@ -23,21 +23,42 @@ export const CellWrapper = styled.div`
 
   color: ${(props) =>
     props.isSelectedMonth ? "#343434" : "rgba(52, 52, 52, 0.3)"};
+
+  @media screen and (min-width: 768px) {
+    height: 144px;
+    min-width: calc(100px-6px);
+    padding: 14px 4px 2px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 14px 8px 2px;
+    height: 125px;
+  }
 `;
 
 export const RowInCeil = styled.div`
   display: flex;
+  margin-bottom: 20px;
   justify-content: ${(props) =>
     props.justifyContent ? props.justifyContent : "flex-start"};
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 20px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 5px;
+  }
 `;
 
 export const DayWrapper = styled.div`
-  height: 27px;
-  width: 26px;
+  width: 20px;
+  height: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  margin-right: 2px;
 
   /* font-family: "Inter"; */
   font-style: normal;
@@ -45,12 +66,20 @@ export const DayWrapper = styled.div`
   font-size: 12px;
   line-height: 1.17;
   /* identical to box height, or 117% */
+
+  @media screen and (min-width: 768px) {
+    width: 27px;
+    height: 26px;
+
+    font-size: 16px;
+    line-height: 1.12;
+    margin-right: 10px;
+  }
 `;
 
-export const CurrentDay = styled.div`
-  width: 20px;
-  height: 22px;
-  margin-right: 2px;
+export const CurrentDay = styled.span`
+  width: 100%;
+  height: 100%;
 
   display: flex;
 
@@ -62,6 +91,14 @@ export const CurrentDay = styled.div`
 
   background: #3e85f3;
   border-radius: 8px;
+
+  @media screen and (min-width: 768px) {
+    width: 27px;
+    height: 26px;
+
+    font-size: 16px;
+    line-height: 1.12;
+  }
 `;
 
 export const ShowDayWrapper = styled.div`
@@ -72,6 +109,7 @@ export const ShowDayWrapper = styled.div`
 export const TaskList = styled.ul`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 2px;
   width: 100%;
   padding: 0;
@@ -103,4 +141,15 @@ export const TaskItem = styled.li`
         return "#72C2F8";
     }
   }};
+
+  @media screen and (min-width: 768px) {
+    padding: 4px 10px 4px 12px;
+
+    font-size: 14px;
+    line-height: 1.29;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 4px 15px 4px 12px;
+  }
 `;

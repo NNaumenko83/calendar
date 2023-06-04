@@ -83,7 +83,7 @@ export const CalendarTable = ({ startDay, today }) => {
             <ShowDayWrapper>
               <DayWrapper>
                 {!isCurrentDay(dayItem) ? (
-                  <div>{dayItem.format("D")}</div>
+                  <span>{dayItem.format("D")}</span>
                 ) : (
                   <CurrentDay>{dayItem.format("D")}</CurrentDay>
                 )}

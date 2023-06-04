@@ -17,6 +17,16 @@ export const DaysWrapper = styled.div`
   background: #ffffff;
   border: 1px solid rgba(220, 227, 229, 0.8);
   border-radius: 8px;
+
+  @media screen and (min-width: 768px) {
+    height: 46px;
+    margin-bottom: 14px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    height: 46px;
+    margin-bottom: 15px;
+  }
 `;
 
 export const СellOfDay = styled.div`
