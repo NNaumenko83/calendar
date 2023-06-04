@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useMediaQuery } from "react-responsive";
+
 import {
   CalendarGridWrapper,
   CellWrapper,
@@ -14,8 +16,21 @@ import moment from "moment";
 export const CalendarTable = ({ startDay, today }) => {
   const [tasks, setTasks] = useState([]);
 
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1439 });
+  // const isDesktop = useMediaQuery({ minWidth: 1440 });
+
   const totalDays = 42;
-  const maxLengthOfTaskTitle = 10;
+
+  let maxLengthOfTaskTitle = null;
+
+  if (isMobile) {
+    maxLengthOfTaskTitle = 4;
+  } else if (isTablet) {
+    maxLengthOfTaskTitle = 6;
+  } else {
+    maxLengthOfTaskTitle = 10;
+  }
 
   const cutString = (str) => {
     if (str.length > maxLengthOfTaskTitle) {

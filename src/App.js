@@ -19,7 +19,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div style={{ width: "100vw", padding: "0 20px" }}>
       <Monitor
         today={today}
         prevHandler={prevHandler}
